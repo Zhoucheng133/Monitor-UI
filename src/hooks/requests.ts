@@ -14,6 +14,5 @@ export async function initData(){
   data.value.ramData=response.ramData;
   data.value.systemData=response.systemData;
 
-  console.log(data.value);
-  
+  // console.log(data.value);
 }
