@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Data } from "./interfaces";
+import { Data, WsData } from "./interfaces";
 import { ref } from "vue";
 import baseurl from "./baseurl";
 
@@ -22,14 +22,27 @@ export default defineStore("data", ()=>{
       available: 0
     },
     diskData: [],
-    networkData: []
   })
 
-  var socket;
+  var processorUsage=ref<number[]>([]);
+
+  var socket: WebSocket;
 
   const initSocket=()=>{
     socket=new WebSocket(`ws://${baseurl}/ws`);
+    socket.onopen=()=>{
+      socket.send('ws_request');
+    }
+    socket.onmessage=(event)=>{
+      const response: WsData=JSON.parse(event.data);
+      data.value.processorData=response.processorData;
+      data.value.ramData=response.ramData;
+      if(processorUsage.value.length>30){
+        processorUsage.value.shift();
+      }
+      processorUsage.value.push(Math.round(response.processorData.usage*100))
+    }
   }
 
-  return {data, initSocket}
+  return {data, initSocket, processorUsage}
 })

@@ -3,7 +3,6 @@ export interface Data{
   processorData: ProcessorData,
   ramData: RamData
   diskData: DiskData[],
-  networkData: NetworkData[],
 }
 
 export interface StaticData{
@@ -11,6 +10,11 @@ export interface StaticData{
   processorData: ProcessorData,
   ramData: RamData
   diskData: DiskData[],
+}
+
+export interface WsData{
+  ramData: RamData,
+  processorData: ProcessorData,
 }
 
 interface SystemData{
@@ -36,10 +40,4 @@ interface DiskData{
   name: string,
   total: number,
   used: number,
-}
-
-interface NetworkData{
-  name: string,
-  downloadSpeed: number,
-  uploadSpeedt: number,
 }

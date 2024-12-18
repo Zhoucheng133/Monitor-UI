@@ -7,7 +7,7 @@ import { StaticData } from "./interfaces";
 export async function initData(){
   let { data }=storeToRefs(store());
 
-  const response=(await axios.get(`${baseurl}/api/get`)).data as StaticData;
+  const response=(await axios.get(`http://${baseurl}/api/get`)).data as StaticData;
   
   data.value.diskData=response.diskData;
   data.value.processorData=response.processorData;
