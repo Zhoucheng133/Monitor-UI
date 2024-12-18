@@ -3,12 +3,14 @@
     <div class="hello">Welcome back!</div>
     <div class="subtitle">Monitor Panel</div>
     <baseinfo/>
+    <processor style="margin-top: 30px;" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { initData } from './hooks/requests';
 import baseinfo from './components/baseinfo.vue';
+import processor from './components/processor.vue';
 
 
 initData();

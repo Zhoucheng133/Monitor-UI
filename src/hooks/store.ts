@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { Data } from "./interfaces";
 import { ref } from "vue";
+import baseurl from "./baseurl";
 
 export default defineStore("data", ()=>{
   var data=ref<Data>({
@@ -24,5 +25,11 @@ export default defineStore("data", ()=>{
     networkData: []
   })
 
-  return {data}
+  var socket;
+
+  const initSocket=()=>{
+    socket=new WebSocket(`ws://${baseurl}/ws`);
+  }
+
+  return {data, initSocket}
 })
