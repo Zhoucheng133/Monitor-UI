@@ -36,7 +36,7 @@ interface RamData{
   available: number,
 }
 
-interface DiskData{
+export interface DiskData{
   name: string,
   total: number,
   used: number,
