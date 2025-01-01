@@ -31,7 +31,7 @@ interface ProcessorData{
   usage: number
 }
 
-interface RamData{
+export interface RamData{
   total: number,
   available: number,
 }

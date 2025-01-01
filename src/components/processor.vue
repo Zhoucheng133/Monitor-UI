@@ -27,11 +27,11 @@
         </div>
         <div class="disk_text">
           <div class="disk_label">Total</div>
-          <div class="disk_content">{{ formatBytes(store.data.diskData[0].total, "MB") }}</div>
+          <div class="disk_content">{{ store.data.diskData[0]==undefined ? "0 Byte" : formatBytes(store.data.diskData[0].total, "MB") }}</div>
           <div class="disk_label" style="margin-top: 10px; color: lightgrey;">Used</div>
-          <div class="disk_content" style="color: lightgrey;">{{ formatBytes(store.data.diskData[0].used, "MB") }}</div>
-          <div class="disk_label" style="margin-top: 10px; color: skyblue;">Free</div>
-          <div class="disk_content" style="color: skyblue;">{{  formatBytes(store.data.diskData[0].total - store.data.diskData[0].used, "MB") }}</div>
+          <div class="disk_content" style="color: lightgrey;">{{ store.data.diskData[0]==undefined ? "0 Byte" : formatBytes(store.data.diskData[0].used, "MB") }}</div>
+          <div class="disk_label" style="margin-top: 10px; color: skyblue;">Available</div>
+          <div class="disk_content" style="color: skyblue;">{{  store.data.diskData[0]==undefined ? "0 Byte" : formatBytes(store.data.diskData[0].total - store.data.diskData[0].used, "MB") }}</div>
         </div>
       </div>
     </div>

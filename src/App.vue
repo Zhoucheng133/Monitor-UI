@@ -4,6 +4,7 @@
     <div class="subtitle">Monitor Panel</div>
     <baseinfo/>
     <processor style="margin-top: 30px;" />
+    <ram style="margin-top: 30px;"/>
   </div>
 </template>
 
@@ -11,7 +12,7 @@
 import { initData } from './hooks/requests';
 import baseinfo from './components/baseinfo.vue';
 import processor from './components/processor.vue';
-
+import ram from './components/ram.vue';
 
 initData();
 
